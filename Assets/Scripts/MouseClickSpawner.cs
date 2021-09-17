@@ -6,6 +6,7 @@ using UnityEngine;
 public class MouseClickSpawner : MonoBehaviour
 {
     [SerializeField] Grid grid = default;
+    [SerializeField] GameObject objectToBeSpawned;
 
     BoxCollider2D collider = default;
     new Camera camera = default;
@@ -30,7 +31,7 @@ public class MouseClickSpawner : MonoBehaviour
         Vector2 tileIndex = GetTileIndexInGrid(gridDimensions, collider, mousePosInWU);
         Vector2 spawnPos = GetTilePositionInWorldSpace(gridDimensions, collider, tileIndex);
 
-        Debug.Log("Spawn pos: " + spawnPos);
+        Instantiate(objectToBeSpawned, spawnPos, Quaternion.identity);
     }
 
     Vector2 GetTileIndexInGrid(Vector2 gridDimensions, BoxCollider2D collider, Vector2 mousePosition)
