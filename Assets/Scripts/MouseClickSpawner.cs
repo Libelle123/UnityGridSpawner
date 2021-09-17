@@ -37,9 +37,10 @@ public class MouseClickSpawner : MonoBehaviour
     Vector2 GetTileIndexInGrid(Vector2 gridDimensions, BoxCollider2D collider, Vector2 mousePosition)
     {
         Vector2 bottomLeftCorner = collider.bounds.min;
-        Vector2 relativeMousePos = mousePosition - (Vector2)bottomLeftCorner;
-        Vector2 colliderDimensions = collider.bounds.size;
 
+        Vector2 relativeMousePos = mousePosition - bottomLeftCorner;
+
+        Vector2 colliderDimensions = collider.bounds.size;
         Vector2 normalisedMousePos = relativeMousePos / colliderDimensions;
 
         Vector2 tileIndex = normalisedMousePos * gridDimensions;
@@ -51,7 +52,8 @@ public class MouseClickSpawner : MonoBehaviour
 
     Vector3 GetTilePositionInWorldSpace(Vector2 gridDimensions, BoxCollider2D collider, Vector2 tileIndex)
     {
-        Vector2 gridScaleFactor = gridDimensions / collider.size;
+        Vector2 gridScaleFactor = collider.size / gridDimensions;
+            
         Vector2 tileCentreOffset = 0.5f * gridScaleFactor;
         Vector2 tilePosInGrid = tileIndex * gridScaleFactor;
 
