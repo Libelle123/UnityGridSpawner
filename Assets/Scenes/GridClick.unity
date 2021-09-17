@@ -216,6 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1111618255}
   - component: {fileID: 1111618256}
+  - component: {fileID: 1111618257}
   - component: {fileID: 1111618254}
   m_Layer: 0
   m_Name: Grid
@@ -234,7 +235,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 5, y: 1}
@@ -279,6 +280,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfRows: 2
   numberOfColumns: 10
+--- !u!114 &1111618257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111618253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dca6a4cca07896a4aba849ab6b3150e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grid: {fileID: 1111618256}
 --- !u!224 &1787559633 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8168823415863486513, guid: 401b5c2a260198a4b902c5b5b3678fc5, type: 3}
