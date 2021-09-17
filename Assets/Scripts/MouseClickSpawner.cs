@@ -18,8 +18,29 @@ public class MouseClickSpawner : MonoBehaviour
     private void OnMouseDown()
     {
         Vector2 mousePosInWU = camera.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 spawnPos = gridHandler.GetTilePositionInWorldSpace(mousePosInWU);
+        Vector2Int tileIndex = gridHandler.GetTileIndex(mousePosInWU);
 
-        Instantiate(objectToBeSpawned, spawnPos, Quaternion.identity);
+        GameObject gameObjectOnTile = gridHandler.GetValueFromTileIndex(tileIndex);
+
+        if (gameObjectOnTile != null)
+        {
+            Destroy(gameObjectOnTile);
+            gridHandler.ClearTile(tileIndex);
+            return;
+        }
+
+        Vector2 spawnPos = gridHandler.GetTilePositionInWorldSpace(tileIndex);
+
+        if (spawnPos != new Vector2(-1f, -1f))
+        {
+            GameObject gameObject = Instantiate(objectToBeSpawned, spawnPos, Quaternion.identity);
+            gridHandler.AddValueToTile(tileIndex, gameObject);
+        }
+    }
+
+    bool IsGridTileFree(Vector2Int tileIndex)
+    {
+        GameObject gameObject = gridHandler.GetValueFromTileIndex(tileIndex);
+        return (gameObject == null);
     }
 }

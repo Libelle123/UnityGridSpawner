@@ -43,11 +43,26 @@ public class GridHandler : MonoBehaviour
 
         return tileIndex;
     }
-    public Vector3 GetTilePositionInWorldSpace(Vector2 mousePosition)
+
+    public GameObject GetValueFromTileIndex(Vector2Int tileIndex)
+    {
+        GameObject gameObject = grid.GetValueFromTileIndex(tileIndex);
+        return gameObject;
+    }
+
+    public void AddValueToTile (Vector2Int tileIndex, GameObject gameObject)
+    {
+        grid.AddValueToTile(tileIndex, gameObject);
+    }
+    public void ClearTile(Vector2Int tileIndex)
+    {
+        grid.ClearTile(tileIndex);
+    }
+
+    public Vector3 GetTilePositionInWorldSpace(Vector2Int tileIndex)
     {
         Vector2 gridScaleFactor = collider.size / grid.GridDimensions;
 
-        Vector2Int tileIndex = GetTileIndex(mousePosition);
         Vector2 tileCentreOffset = 0.5f * gridScaleFactor;
         Vector2 tilePosInGrid = tileIndex * gridScaleFactor;
 
