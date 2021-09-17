@@ -238,7 +238,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 5, y: 1}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -249,7 +249,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10, y: 2}
+  m_Size: {x: 12, y: 3}
   m_EdgeRadius: 0
 --- !u!4 &1111618255
 Transform:
@@ -259,7 +259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1111618253}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 7.18, y: 3.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1787559633}
@@ -278,8 +278,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02eda8f5b948846418ca7d6d1142ff99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfRows: 2
-  numberOfColumns: 10
+  numberOfColumns: 12
+  numberOfRows: 3
 --- !u!114 &1111618257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,7 +292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca6a4cca07896a4aba849ab6b3150e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grid: {fileID: 1111618256}
+  gridHandler: {fileID: 1111618256}
+  objectToBeSpawned: {fileID: 4158355312584096411, guid: 51117978ff03ba84a9b741a78ec6c281, type: 3}
 --- !u!224 &1787559633 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8168823415863486513, guid: 401b5c2a260198a4b902c5b5b3678fc5, type: 3}

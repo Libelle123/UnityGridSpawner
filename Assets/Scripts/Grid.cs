@@ -1,32 +1,21 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Grid : MonoBehaviour
+public class Grid
 {
-    [Header("Grid Data")]
-    [SerializeField][MinAttribute(0)] int numberOfRows;
-    [SerializeField][MinAttribute(0)] int numberOfColumns;
+    public int NumberOfRows { get; private set; }
+    public int NumberOfColumns { get; private set; }
+    public Vector2Int GridDimensions { get { return new Vector2Int(NumberOfColumns, NumberOfRows); }}
 
-    GridData gridData;
 
-    private void Awake()
-    {
-        gridData = new GridData(numberOfRows, numberOfColumns);
-    }
-   
-    public GridData GetGridData()
-    {
-        return gridData;
-    }
-}
-
-public struct GridData
-{
-    public readonly int NumberOfRows;
-    public readonly int NumberOfColumns;
-
-    public GridData(int numberOfRows = 0, int numberOfColums = 0)
+    public Grid(int numberOfRows = 0, int numberOfColums = 0)
     {
         NumberOfRows = (numberOfRows > 0 ? numberOfRows : 0);
         NumberOfColumns = (numberOfColums > 0 ? numberOfColums : 0);
     }
-};
+
+}
+
+//  Visualisation of tile indices in imaginary grid
+//  | 0,1 | 0,2 |
+//  | 0,0 | 1,0 |
