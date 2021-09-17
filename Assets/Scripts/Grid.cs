@@ -3,8 +3,8 @@ using UnityEngine;
 public class Grid : MonoBehaviour
 {
     [Header("Grid Data")]
-    [SerializeField][Range(0, 1000)] int numberOfRows;
-    [SerializeField][Range(0, 1000)] int numberOfColumns;
+    [SerializeField][MinAttribute(0)] int numberOfRows;
+    [SerializeField][MinAttribute(0)] int numberOfColumns;
 
     GridData gridData;
 
